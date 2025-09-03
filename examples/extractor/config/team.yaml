@@ -1,0 +1,23 @@
+name: "Content Extractor Demo"
+description: "Demonstrates powerful Crawl4AI-based content extraction capabilities"
+
+agents:
+  - "researcher" # Uses default researcher preset from framework
+
+# Single agent - no handoffs needed
+handoffs: []
+
+# Memory configuration to prevent context overflow
+memory:
+  enabled: true
+  max_context_tokens: 32000 # Keep well under 65k limit
+  semantic_search_enabled: true
+  short_term_limit: 16000
+  long_term_enabled: true
+
+# Execution configuration
+execution:
+  mode: "autonomous"
+  max_rounds: 10
+  timeout_seconds: 1800
+  initial_agent: "researcher"

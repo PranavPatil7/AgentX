@@ -1,0 +1,89 @@
+/* Clean, simple markdown styles for chat messages */
+.markdown-message {
+  @apply text-foreground text-sm leading-relaxed;
+  /* Prevent content from expanding beyond container */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+/* Headers - minimal styling */
+.markdown-message h1,
+.markdown-message h2,
+.markdown-message h3,
+.markdown-message h4,
+.markdown-message h5,
+.markdown-message h6 {
+  @apply font-semibold text-foreground mb-2 mt-2;
+}
+
+.markdown-message h1 { @apply text-base; }
+.markdown-message h2 { @apply text-sm; }
+.markdown-message h3,
+.markdown-message h4,
+.markdown-message h5,
+.markdown-message h6 { @apply text-sm; }
+
+/* Paragraphs - clean spacing */
+.markdown-message p {
+  @apply mb-2 text-foreground leading-relaxed;
+}
+
+/* Lists - simple indentation */
+.markdown-message ul,
+.markdown-message ol {
+  @apply mb-2 ml-4;
+}
+
+.markdown-message ul { @apply list-disc; }
+.markdown-message ol { @apply list-decimal; }
+.markdown-message li { @apply mb-0.5; }
+
+/* Code - subtle background */
+.markdown-message code {
+  @apply bg-muted/50 px-1 py-0.5 rounded text-xs font-mono;
+}
+
+.markdown-message pre {
+  @apply bg-muted/50 p-2 rounded overflow-x-auto mb-2 text-xs;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.markdown-message pre code {
+  @apply bg-transparent p-0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Links - simple styling */
+.markdown-message a {
+  @apply text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline;
+}
+
+/* Emphasis */
+.markdown-message strong { @apply font-semibold; }
+.markdown-message em { @apply italic; }
+
+/* Blockquotes - subtle */
+.markdown-message blockquote {
+  @apply border-l-2 border-muted-foreground/20 pl-2 my-2 italic text-muted-foreground;
+}
+
+/* Tables - ensure they don't break layout */
+.markdown-message table {
+  @apply mb-2 text-sm;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-message th,
+.markdown-message td {
+  @apply px-2 py-1 border border-muted;
+}
+
+/* Remove excessive spacing */
+.markdown-message > *:first-child { @apply mt-0; }
+.markdown-message > *:last-child { @apply mb-0; } 

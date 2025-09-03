@@ -1,0 +1,17 @@
+name: "ToolChatTeam"
+description: "A single agent that uses search and custom weather tools to answer questions"
+output_dir: "taskspace"
+
+agents:
+  - name: assistant
+    description: "AI assistant that uses tools to gather information and provide comprehensive answers"
+    class: vibex.core.agent.Agent
+    prompt_template: "prompts/assistant.md"
+    tools:
+      - get_weather
+    llm_config:
+      model: deepseek/deepseek-chat
+      temperature: 0.3
+      max_tokens: 2048
+      supports_function_calls: true
+# No handoffs needed - single agent
